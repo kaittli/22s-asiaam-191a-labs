@@ -36,3 +36,5 @@ fetch("map.geojson")
         // Basic Leaflet method to add GeoJSON data
         L.geoJSON(data).addTo(map)
     });
+
+    console.log(hello)
