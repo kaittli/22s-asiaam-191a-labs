@@ -4,7 +4,6 @@ body{
     grid-auto-rows: minmax(5px, auto);
     grid-template-areas: "header" "main_content" "footer";
     font-family:Verdana, sans-serif;
-    height: 100vh;
 }
 
 h1{
@@ -33,9 +32,9 @@ h4{
     color: rgb(76, 156, 103);
     font-size:30px;
 }
-img{
+#profilepic img{
     width: 35%;
-    height: auto;
+    display: block;
     margin-left: auto;
     margin-right: auto;
 }
@@ -65,7 +64,8 @@ p2{
 
 #footer{
     grid-area: footer;
-    position: absolute;
+    margin-left: 0in;
+    margin-bottom: 0in;
     font-family:Verdana, sans-serif;
 }
 
