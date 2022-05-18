@@ -1,5 +1,5 @@
 // declare variables
-let mapOptions = {'center': [34.0709,-118.444],'zoom':5}
+let mapOptions = {'center': [38.0709,-121.888],'zoom':8}
 
 // use the variables
 const map = L.map('the_map').setView(mapOptions.center, mapOptions.zoom);
@@ -11,8 +11,8 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // create a function to add markers
 function addMarker(data){
     //console.log(message)
-    L.marker([data.lat,data.lng]).addTo(map).bindPopup(`<h2>${data.Location}</h2> <h3>${data.OpenEnded}</h3>`)
-    createButtons(data.lat,data.lng,data['Location'])
+    L.marker([data.lat,data.lng]).addTo(map).bindPopup(`<h2>${data['What is the name of the food spot that you would like to share? ']}</h2> <h3>${data['Why are you choosing to share this spot?']}</h3>`)
+    createButtons(data.lat,data.lng,data['What is the name of the food spot that you would like to share? '])
     return 
 }
 
@@ -29,7 +29,7 @@ function createButtons(lat,lng,title){
     spaceForButtons.appendChild(newButton);//this adds the button to our page.
 }
 //for below, use your own survey!!
-const dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS2WyfKTyZJ-_ja3GGrxoAXwranavyDGXYsxeFUO4nvHpCJrkKhChymXQqUEyhdGLnz9VN6BJv5tOjp/pub?gid=1560504149&single=true&output=csv"
+const dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRWVB8_DuecymTGdxqweUlUj1x64PdYZK14dJbGHWuffaW6DaZ_8HgRFeWbkXJNzPdc_5WJXGm26Zhn/pub?output=csv"
 
 function loadData(url){
     Papa.parse(url, {
@@ -46,5 +46,4 @@ function processData(results){
         addMarker(data)
     })
 }
-
 loadData(dataUrl)
