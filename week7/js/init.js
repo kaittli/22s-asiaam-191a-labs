@@ -41,7 +41,7 @@ L.control.layers(null,layers).addTo(map)
 function addMarker(data){
     if(data['Were you recommended this food spot by someone else? '] == "Yes"){
         circleOptions.fillColor = 'rgb(180, 70, 170)'
-        recommended.addLayer(L.circleMarker([data.lat,data.lng],circleOptions).bindPopup(`<h2>Recommended by someone else</h2>`))
+        recommended.addLayer(L.circleMarker([data.lat,data.lng],circleOptions).bindPopup(`<h2>Recommended by someone else</h2> <h2>${data['What is the name of the food spot that you would like to share? ']}</h2> <h2>${data['Why are you choosing to share this spot?']}</h2>`))
         createButtons(data.lat,data.lng,data['What is the name of the food spot that you would like to share? '])
         }
     else{
