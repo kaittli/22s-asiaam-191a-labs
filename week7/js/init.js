@@ -1,5 +1,5 @@
 // declare variables
-let mapOptions = {'center': [34.0709,-118.888],'zoom':5};
+let mapOptions = {'center': [34.0709,-118.888],'zoom':3};
 
 let recommended = L.featureGroup();
 let nonrec = L.featureGroup();
@@ -22,13 +22,14 @@ const dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYOYDGNORWo0i8
 
 const map = L.map('the_map').setView(mapOptions.center, mapOptions.zoom);
 
-let Stadia_AlidadeSmooth = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', {
-	maxZoom: 20,
-	attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
-});
+let CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+	subdomains: 'abcd',
+	maxZoom: 20
+}).addTo(map);
 
 
-Stadia_AlidadeSmooth.addTo(map)
+CartoDB_Positron.addTo(map)
 
 // add layer control box
 L.control.layers(null,layers).addTo(map)
